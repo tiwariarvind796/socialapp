@@ -1,0 +1,5 @@
+
+
+$("#new_user_<%=@user.id%>").html('<%= escape_javascript(render(:partial => "items/form"))%>')
+var modal = "<%= escape_javascript(render :partial => 'items/form', :locals => { :item => @item.errors }) %>";
+$("#client_validate").html($(modal));

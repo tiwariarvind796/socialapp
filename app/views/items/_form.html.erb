@@ -1,0 +1,29 @@
+
+
+   
+   <div id="client_validate">
+    <%= simple_nested_form_for @user, :html => { :multipart => true }, remote: true, :validate => true do |f| %>
+    <%= f.error_notification %>
+      <%= f.fields_for :items do |task_form| %>
+      <div>
+     <b>name</b>
+     <%=task_form.text_field :name %>
+     </div>
+
+     <div>
+     <b>price</b>
+     <%=task_form.text_field :price %>
+     </div>
+
+    <div>
+    <%= task_form.file_field :avatar %>
+    </div>
+
+  <%end%>
+
+   <p><%= f.link_to_add "Add a task", :items %></p> 
+   <%=f.submit %>
+   </div>
+
+ <%end%>
+
